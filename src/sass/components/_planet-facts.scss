@@ -1,0 +1,95 @@
+@use '../abstracts/mixins' as mxn;
+
+.planet-facts {
+	--internal-padding-inline: 2.4rem;
+	padding-block-end: 3.6rem;
+	@include mxn.planet-colors; // colors for planets
+	@include mxn.planet-image-max-sizes;
+	@include mxn.mq(medium) {
+		--internal-padding-inline: 0;
+		padding-block: 3.6rem;
+	}
+	@include mxn.mq(large) {
+		padding-block: 7rem;
+	}
+
+	&__image-container {
+		--height: 25.6rem;
+		position: relative;
+		isolation: isolate;
+		display: grid;
+		place-items: center;
+		height: var(--height);
+		max-height: 100%;
+		aspect-ratio: 1;
+		@include mxn.mq(medium) {
+			--height: 40rem;
+		}
+		@include mxn.mq(large) {
+			--height: 66rem;
+			aspect-ratio: unset;
+			width: 100%;
+		}
+	}
+
+	&__geology-image {
+		display: none;
+		position: absolute;
+		top: 62.5%;
+		left: 50%;
+		translate: -50%;
+		width: clamp(10rem, 10vw, 16.3rem);
+		&.visible {
+			display: block;
+		}
+	}
+
+	&__image {
+		max-height: 100%;
+		width: auto;
+		max-width: min(100%, var(--planet-max-size));
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		padding-inline: var(--internal-padding-inline);
+		@include mxn.mq(medium) {
+			text-align: start;
+		}
+
+		p {
+			line-height: 2;
+			max-width: 52ch;
+			margin-inline: auto;
+			@include mxn.mq(medium) {
+				margin-inline: unset;
+				line-height: 1.75;
+			}
+		}
+	}
+
+	&__facts {
+		padding-inline: var(--internal-padding-inline);
+	}
+
+	&__heading {
+		margin-block-end: 1.6rem;
+		font-size: var(--fz-700);
+		text-transform: uppercase;
+		line-height: 1;
+		@include mxn.mq(medium) {
+			margin-block-end: 2.4rem;
+		}
+	}
+
+	&__source {
+		margin-block-start: 3.2rem;
+		font-size: var(--fz-400);
+		letter-spacing: 1px;
+		@include mxn.mq(medium) {
+			margin-block-start: 2.4rem;
+		}
+	}
+}

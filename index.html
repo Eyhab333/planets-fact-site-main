@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./dist/assets/icons/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;700&family=League+Spartan:wght@400;700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./dist/css/main.min.css">
+
+  <title>Frontend Mentor | Planets fact site</title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="primary-navigation">
+      <h1 class="logo">The Planets</h1>
+      <button aria-label="Menu toggle"
+              aria-expanded="false"
+              aria-controls="primary-nav"
+              id="primary-nav-toggle"
+              class="toggle-button primary-navigation__toggle">
+        <img src="./dist/assets/icons/icon-hamburger.svg" alt="">
+      </button>
+      <div id="primary-nav" class="primary-navigation__nav">
+        <ul class="primary-navigation__nav-list">
+          <li><a href="#mercury" data-planet="mercury" class="primary-navigation__nav-link active">Mercury</a></li>
+          <li><a href="#venus" data-planet="venus" class="primary-navigation__nav-link">Venus</a></li>
+          <li><a href="#earth" data-planet="earth" class="primary-navigation__nav-link">Earth</a></li>
+          <li><a href="#mars" data-planet="mars" class="primary-navigation__nav-link">Mars</a></li>
+          <li><a href="#jupiter" data-planet="jupiter" class="primary-navigation__nav-link">Jupiter</a></li>
+          <li><a href="#saturn" data-planet="saturn" class="primary-navigation__nav-link">Saturn</a></li>
+          <li><a href="#uranus" data-planet="uranus" class="primary-navigation__nav-link">Uranus</a></li>
+          <li><a href="#neptune" data-planet="neptune" class="primary-navigation__nav-link">Neptune</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="planet-facts | planet-facts-grid" data-planet="mercury">
+        <div data-area="image" class="planet-facts__image-container">
+          <img src="./dist/assets/planets/mercury/planet-mercury.svg"
+               alt=""
+               id="planet-image"
+               class="planet-facts__image">
+          <img src="./dist/assets/planets/mercury/geology-mercury.png"
+               alt=""
+               id="geology-image"
+               class="planet-facts__geology-image">
+        </div>
+
+        <header data-area="content" class="planet-facts__content">
+          <h2 id="planet-heading" class="planet-facts__heading">Mercury</h2>
+          <p id="planet-description">Mercury is the smallest planet in the Solar System and the closest
+            to the Sun. Its orbit around the Sun takes 87.97 Earth days, the
+            shortest of all the Sun's planets. Mercury is one of four terrestrial
+            planets in the Solar System, and is a rocky body like Earth.</p>
+          <p class="planet-facts__source">Source : <a id="source-link"
+               href="https://en.wikipedia.org/wiki/Mercury_(planet)"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="planet-facts__source source-link">Wikipedia
+              <img src="./dist/assets/icons/icon-source.svg" alt=""></a></p>
+        </header>
+
+        <div role="group" data-area="controls" class="control-buttons">
+          <button data-controls="overview" class="control-button active">Overview</button>
+          <button data-controls="structure" class="control-button"><span data-hidden="small">Internal</span>
+            Structure</button>
+          <button data-controls="geology" class="control-button"><span data-hidden="small">Surface</span>
+            Geology</button>
+        </div>
+
+        <section aria-label="Planet data" data-area="facts" class="planet-facts__facts">
+          <ul class="facts-list">
+            <li class="fact">
+              <p class="fact__label">Rotation Time</p>
+              <p data-fact="rotation" class="fact__data">58.6 Days</p>
+            </li>
+            <li class="fact">
+              <p class="fact__label">Revolution Time</p>
+              <p data-fact="revolution" class="fact__data">87.97 Days</p>
+            </li>
+            <li class="fact">
+              <p class="fact__label">Radius</p>
+              <p data-fact="radius" class="fact__data">2,439.7 KM</p>
+            </li>
+            <li class="fact">
+              <p class="fact__label">Average Temp.</p>
+              <p data-fact="temperature" class="fact__data">430°c</p>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script src="./dist/js/main.min.js" defer></script>
+</body>
+
+</html>

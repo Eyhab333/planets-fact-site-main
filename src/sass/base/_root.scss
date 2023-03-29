@@ -1,0 +1,35 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+:root {
+	// colors
+	@each $color, $shades in variables.$colors {
+		@each $shade, $value in $shades {
+			--clr-#{$color}-#{$shade}: #{$value};
+		}
+	}
+
+	// font families
+	--ff-primary: 'League Spartan', sans-serif;
+	--ff-secondary: 'Antonio', sans-serif;
+
+	// font weights
+	@each $font-weight, $value in variables.$font-weights {
+		--fw-#{$font-weight}: #{$value};
+	}
+
+	// font sizes
+	@each $screen, $sizes in variables.$font-sizes {
+		@if $screen == small {
+			@each $size, $value in $sizes {
+				--fz-#{$size}: #{$value};
+			}
+		} @else {
+			@include mixins.mq($screen) {
+				@each $size, $value in $sizes {
+					--fz-#{$size}: #{$value};
+				}
+			}
+		}
+	}
+}

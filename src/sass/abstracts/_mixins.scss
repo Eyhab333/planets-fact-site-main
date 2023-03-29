@@ -1,0 +1,71 @@
+@use './variables';
+
+@mixin mq($key) {
+	$size: map-get(variables.$breakpoints, $key);
+
+	@media only screen and (min-width: $size) {
+		@content;
+	}
+}
+
+@mixin max-mq($key) {
+	$size: map-get(variables.$breakpoints, $key);
+
+	@media only screen and (max-width: calc(#{$size} - 1px)) {
+		@content;
+	}
+}
+
+@mixin planet-colors {
+	&[data-planet='mercury'] {
+		--planet-color: var(--clr-accent-mercury);
+	}
+	&[data-planet='venus'] {
+		--planet-color: var(--clr-accent-venus);
+	}
+	&[data-planet='earth'] {
+		--planet-color: var(--clr-accent-earth);
+	}
+	&[data-planet='mars'] {
+		--planet-color: var(--clr-accent-mars);
+	}
+	&[data-planet='jupiter'] {
+		--planet-color: var(--clr-accent-jupiter);
+	}
+	&[data-planet='saturn'] {
+		--planet-color: var(--clr-accent-saturn);
+	}
+	&[data-planet='uranus'] {
+		--planet-color: var(--clr-accent-uranus);
+	}
+	&[data-planet='neptune'] {
+		--planet-color: var(--clr-accent-neptune);
+	}
+}
+
+@mixin planet-image-max-sizes {
+	&[data-planet='mercury'] {
+		--planet-max-size: 45%;
+	}
+	&[data-planet='venus'] {
+		--planet-max-size: 62.5%;
+	}
+	&[data-planet='earth'] {
+		--planet-max-size: 70%;
+	}
+	&[data-planet='mars'] {
+		--planet-max-size: 52.5%;
+	}
+	&[data-planet='jupiter'] {
+		--planet-max-size: 100%;
+	}
+	&[data-planet='saturn'] {
+		--planet-max-size: 100%;
+	}
+	&[data-planet='uranus'] {
+		--planet-max-size: 72.5%;
+	}
+	&[data-planet='neptune'] {
+		--planet-max-size: 70%;
+	}
+}
